@@ -1,0 +1,165 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #e74c3c;
+    --text: #ecf0f1;
+    --background: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.jump-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.jump-item {
+    background-color: var(--secondary);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.jump-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.jump-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin-right: 1.5rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.jump-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.jump-info .creator {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.jump-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.details-content {
+    background-color: var(--primary);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.details-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.details-content .creator {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.details-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.victors-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.victors-list li {
+    margin-bottom: 0.5rem;
+}
+
+.close-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: var(--primary);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .jump-item {
+        padding: 1rem;
+    }
+    
+    .jump-number {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+}
