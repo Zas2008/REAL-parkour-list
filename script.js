@@ -1,13 +1,3 @@
-// Sample jump data - this will be replaced by jumps.json
-let jumps = [
-    {
-        id: 1,
-        name: "crooked",
-        creator: "thomgram",
-        victors: [""]
-    }
-];
-
 // DOM elements
 const jumpList = document.getElementById('jumpList');
 const jumpDetails = document.getElementById('jumpDetails');
@@ -16,11 +6,37 @@ const detailCreator = document.getElementById('detailCreator');
 const victorsList = document.getElementById('victorsList');
 const closeBtn = document.querySelector('.close-btn');
 
+let jumps = [];
+
+// Fetch jumps from JSON file
+async function loadJumps() {
+    try {
+        const response = await fetch('jumps.json');
+        if (!response.ok) {
+            throw new Error('Failed to load jumps');
+        }
+        jumps = await response.json();
+        displayJumps();
+    } catch (error) {
+        console.error('Error loading jumps:', error);
+        // Fallback to sample data if JSON fails to load
+        jumps = [
+            {
+                id: 1,
+                name: "Something failed to load!",
+                creator: "contact zas08 on discord if you see this repeatedly",
+                victors: ["lol", "Skibiditoiletmaster1023048234908"]
+            }
+        ];
+        displayJumps();
+    }
+}
+
 // Display jumps
 function displayJumps() {
     jumpList.innerHTML = '';
     
-    jumps.forEach(jump => {
+    jumps.sort((a, b) => a.id - b.id).forEach(jump => {
         const jumpElement = document.createElement('div');
         jumpElement.className = 'jump-item';
         jumpElement.innerHTML = `
@@ -64,4 +80,4 @@ jumpDetails.addEventListener('click', (e) => {
 });
 
 // Initialize
-displayJumps();
+loadJumps();
