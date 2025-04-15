@@ -9,12 +9,24 @@
         "id": 2,
         "name": "Quadruple Triple Trials",
         "creator": "Relapse",
-        "victors": ["RaniumΩ", "Tsp", "DonClogs", "thomgram", "Hofa 2001", "VillotDn", "ResidentP"]
+        "victors": ["RaniumΩ", "Tsp", "DonClogs", "thomgram", "Hofa2001", "VillotDn", "ResidentP"]
     },
     {
         "id": 3,
         "name": "U-call",
         "creator": "RaniumΩ",
         "victors": ["Hofa2001"]
+    },
+        {
+        "id": 4,
+        "name": "pole hell",
+        "creator": "polguy2",
+        "victors": ["ResidentP", "kan1s", "Zas"]
+    },
+            {
+        "id": 5,
+        "name": "bollochi.mov",
+        "creator": "???",
+        "victors": ["Abdul (?)"]
     }
 ]
