@@ -2,21 +2,9 @@
 let jumps = [
     {
         id: 1,
-        name: "Crooked",
-        creator: "Thomgram",
-        victors: ["RaniumOmega", "Skibiditoiletmaster1023048234908"]
-    },
-    {
-        id: 2,
-        name: "Impossible Leap",
-        creator: "JumpMaster",
-        victors: ["Airborne", "ParkourPro"]
-    },
-    {
-        id: 3,
-        name: "Death Drop",
-        creator: "GravityDefier",
-        victors: ["Fearless", "EdgeWalker"]
+        name: "crooked",
+        creator: "thomgram",
+        victors: [""]
     }
 ];
 
