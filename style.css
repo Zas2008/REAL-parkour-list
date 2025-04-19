@@ -1,9 +1,13 @@
 :root {
-    --primary: #2c3e50;
-    --secondary: #34495e;
-    --accent: #e74c3c;
-    --text: #ecf0f1;
-    --background: #1a1a1a;
+    --primary: #0a0e17;
+    --secondary: #1a2138;
+    --accent: #ff4d7d;
+    --accent-glow: rgba(255, 77, 125, 0.4);
+    --text: #e0e6ff;
+    --text-glow: rgba(224, 230, 255, 0.3);
+    --background: #050510;
+    --star-color: rgba(255, 255, 255, 0.8);
+    --nebula: rgba(100, 70, 255, 0.1);
 }
 
 * {
@@ -17,24 +21,77 @@ body {
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* Cosmic Background with Pure CSS Stars */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, var(--nebula) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 100, 100, 0.1) 0%, transparent 40%),
+        linear-gradient(to bottom, rgba(5, 5, 16, 0) 0%, var(--background) 100%);
+    z-index: -2;
+}
+
+/* Static Star Pattern (no JS) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20% 30%, var(--star-color) 1px, transparent 0),
+        radial-gradient(1px 1px at 40% 70%, var(--star-color) 1px, transparent 0),
+        radial-gradient(1px 1px at 60% 20%, var(--star-color) 1px, transparent 0),
+        radial-gradient(1px 1px at 80% 50%, var(--star-color) 1px, transparent 0),
+        radial-gradient(1px 1px at 30% 80%, var(--star-color) 1px, transparent 0),
+        radial-gradient(1.5px 1.5px at 10% 40%, var(--star-color) 1.5px, transparent 0),
+        radial-gradient(1.5px 1.5px at 90% 60%, var(--star-color) 1.5px, transparent 0),
+        radial-gradient(1.5px 1.5px at 70% 10%, var(--star-color) 1.5px, transparent 0),
+        radial-gradient(2px 2px at 50% 90%, var(--star-color) 2px, transparent 0);
+    background-size: 200px 200px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* Header with Cosmic Glow */
 header {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, #121a30 100%);
     color: white;
     text-align: center;
     padding: 2rem 0;
     margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 0 30px rgba(100, 70, 255, 0.2);
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--text-glow);
+    background: linear-gradient(to right, #fff, #e0e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
 }
 
 header p {
     font-size: 1.1rem;
     opacity: 0.9;
+    text-shadow: 0 0 5px var(--text-glow);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .jump-list {
@@ -43,20 +100,25 @@ header p {
     padding: 0 1rem;
 }
 
+/* Jump Items with Hover Effects */
 .jump-item {
-    background-color: var(--secondary);
+    background: linear-gradient(145deg, var(--secondary) 0%, #222a42 100%);
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .jump-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent-glow);
 }
 
 .jump-number {
@@ -66,18 +128,38 @@ header p {
     margin-right: 1.5rem;
     min-width: 50px;
     text-align: center;
+    text-shadow: 0 0 10px var(--accent-glow);
+    position: relative;
+}
+
+.jump-number::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.5;
 }
 
 .jump-info h2 {
     font-size: 1.4rem;
     margin-bottom: 0.3rem;
+    background: linear-gradient(to right, #fff, #e0e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .jump-info .creator {
     opacity: 0.8;
     font-size: 0.9rem;
+    color: #a0a8c0;
 }
 
+/* Jump Details Modal */
 .jump-details {
     position: fixed;
     top: 0;
@@ -92,28 +174,44 @@ header p {
 }
 
 .details-content {
-    background-color: var(--primary);
+    background: linear-gradient(145deg, var(--primary) 0%, #121a30 100%);
     padding: 2rem;
     border-radius: 10px;
     max-width: 500px;
     width: 90%;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(100, 70, 255, 0.3), 0 0 20px var(--accent-glow);
 }
 
 .details-content h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
 }
 
 .details-content .creator {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    color: #a0a8c0;
 }
 
 .details-content h3 {
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.details-content h3::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
 }
 
 .victors-list {
@@ -123,30 +221,54 @@ header p {
 
 .victors-list li {
     margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.victors-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent-glow);
 }
 
 .close-btn {
-    background-color: var(--accent);
+    background: linear-gradient(to right, var(--accent), #ff6b9e);
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.2s;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 77, 125, 0.4);
 }
 
 .close-btn:hover {
-    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(255, 77, 125, 0.6);
 }
 
 footer {
     text-align: center;
     padding: 2rem 0;
     margin-top: 2rem;
-    background-color: var(--primary);
+    background: linear-gradient(180deg, transparent 0%, var(--primary) 100%);
     font-size: 0.9rem;
     opacity: 0.8;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 @media (max-width: 600px) {
@@ -156,10 +278,17 @@ footer {
     
     .jump-item {
         padding: 1rem;
+        flex-direction: column;
+        text-align: center;
     }
     
     .jump-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
         font-size: 1.5rem;
-        margin-right: 1rem;
+    }
+    
+    .jump-info h2 {
+        font-size: 1.2rem;
     }
 }
