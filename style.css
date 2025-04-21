@@ -279,3 +279,22 @@ footer::before {
         font-size: 1.2rem;
     }
 }
+
+#leaderboard {
+    display: none;
+    margin-top: 20px;
+}
+
+#leaderboard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboard li {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+#leaderboard li:hover {
+    text-decoration: underline;
+}
