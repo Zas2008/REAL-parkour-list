@@ -40,5 +40,17 @@
         "name": "Free of Charge",
         "creator": "Hofa2001",
         "victors": ["Dauntix", "ArAr100", "RaniumΩ", "DonClogs"]
+    },
+            {
+        "id": 8,
+        "name": "chill guy",
+        "creator": "RaniumΩ",
+        "victors": ["thomgram", "polguy2", "kan1s"]
+    },
+            {
+        "id": 9,
+        "name": "Water",
+        "creator": "埃克斯梅",
+        "victors": ["勒克瑙", "RaniumΩ", "并打开"]
     }
 ]
