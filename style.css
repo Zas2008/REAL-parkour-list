@@ -1,8 +1,8 @@
 :root {
     --primary: #0a0e17;
     --secondary: #1a2138;
-    --accent: #ff4d7d;
-    --accent-glow: rgba(255, 77, 125, 0.4);
+    --accent: #6a8dff;
+    --accent-glow: rgba(106, 141, 255, 0.4);
     --text: #e0e6ff;
     --text-glow: rgba(224, 230, 255, 0.3);
     --background: #050510;
@@ -26,7 +26,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Cosmic Background with Pure CSS Stars */
 body::before {
     content: "";
     position: fixed;
@@ -41,7 +40,6 @@ body::before {
     z-index: -2;
 }
 
-/* Static Star Pattern (no JS) */
 body::after {
     content: "";
     position: fixed;
@@ -64,7 +62,6 @@ body::after {
     opacity: 0.7;
 }
 
-/* Header with Cosmic Glow */
 header {
     background: linear-gradient(135deg, var(--primary) 0%, #121a30 100%);
     color: white;
@@ -100,7 +97,6 @@ header p {
     padding: 0 1rem;
 }
 
-/* Jump Items with Hover Effects */
 .jump-item {
     background: linear-gradient(145deg, var(--secondary) 0%, #222a42 100%);
     margin-bottom: 1rem;
@@ -159,7 +155,6 @@ header p {
     color: #a0a8c0;
 }
 
-/* Jump Details Modal */
 .jump-details {
     position: fixed;
     top: 0;
@@ -225,16 +220,8 @@ header p {
     padding-left: 1.5rem;
 }
 
-.victors-list li::before {
-    content: "✦";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    text-shadow: 0 0 5px var(--accent-glow);
-}
-
 .close-btn {
-    background: linear-gradient(to right, var(--accent), #ff6b9e);
+    background: linear-gradient(to right, var(--accent), #6a8dff);
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
@@ -243,12 +230,12 @@ header p {
     font-size: 1rem;
     font-weight: bold;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 77, 125, 0.4);
+    box-shadow: 0 5px 15px rgba(106, 141, 255, 0.4);
 }
 
 .close-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(255, 77, 125, 0.6);
+    box-shadow: 0 7px 20px rgba(106, 141, 255, 0.6);
 }
 
 footer {
