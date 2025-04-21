@@ -12,7 +12,7 @@
         <h1>Parkour Jump Demonlist</h1>
         <p>Ranking the hardest parkour jumps ever completed</p>
         <!-- Leaderboard Button -->
-        <button id="leaderboardBtn">Leaderboard</button>
+        <button id="leaderboardBtn" class="btn">Leaderboard</button>
     </header>
 
     <main>
@@ -27,11 +27,23 @@
                 <button class="close-btn">Close</button>
             </div>
         </div>
-        
-        <!-- Leaderboard Section -->
-        <div class="leaderboard" id="leaderboard">
-            <h2>Leaderboard</h2>
-            <ul id="leaderboardList"></ul>
+
+        <!-- Leaderboard Modal -->
+        <div class="leaderboard-modal" id="leaderboardModal">
+            <div class="leaderboard-content">
+                <h2>Leaderboard</h2>
+                <ul id="leaderboardList"></ul>
+                <button class="close-btn" id="closeLeaderboardBtn">Close</button>
+            </div>
+        </div>
+
+        <!-- Player Jumps Modal -->
+        <div class="player-jumps-modal" id="playerJumpsModal">
+            <div class="player-jumps-content">
+                <h3>Jumps</h3>
+                <ul id="playerJumpsList"></ul>
+                <button class="close-btn" id="closePlayerJumpsBtn">Close</button>
+            </div>
         </div>
     </main>
 
