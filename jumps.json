@@ -21,7 +21,7 @@
         "id": 4,
         "name": "pole hell",
         "creator": "polguy2",
-        "victors": ["ResidentP", "kan1s", "Zas"]
+        "victors": ["ResidentP", "kan1s", "Zas", "RaniumΩ"]
     },
             {
         "id": 5,
@@ -34,5 +34,11 @@
         "name": "THE END",
         "creator": "BeBo2900",
         "victors": ["RaniumΩ", "Hofa2001", "Crawlcrol", "DonClogs", "tipdee22", "ForeverAgain", "Dauntix", "HalemAn0", "thomgram", "Calci2"]
+    },
+            {
+        "id": 7,
+        "name": "Free of Charge",
+        "creator": "Hofa2001",
+        "victors": ["Dauntix", "ArAr100", "RaniumΩ", "DonClogs"]
     }
 ]
