@@ -6,8 +6,12 @@ const detailCreator = document.getElementById('detailCreator');
 const victorsList = document.getElementById('victorsList');
 const closeBtn = document.querySelector('.close-btn');
 const leaderboardBtn = document.getElementById('leaderboardBtn');
-const leaderboard = document.getElementById('leaderboard');
+const leaderboardModal = document.getElementById('leaderboardModal');
 const leaderboardList = document.getElementById('leaderboardList');
+const closeLeaderboardBtn = document.getElementById('closeLeaderboardBtn');
+const playerJumpsModal = document.getElementById('playerJumpsModal');
+const playerJumpsList = document.getElementById('playerJumpsList');
+const closePlayerJumpsBtn = document.getElementById('closePlayerJumpsBtn');
 
 let jumps = [];
 let leaderboardData = {};
@@ -24,7 +28,6 @@ async function loadJumps() {
         calculateLeaderboard();
     } catch (error) {
         console.error('Error loading jumps:', error);
-        // Fallback to sample data if JSON fails to load
         jumps = [
             {
                 id: 1,
@@ -91,30 +94,31 @@ function calculateLeaderboard() {
 
     // Iterate over all jumps to collect data
     jumps.forEach(jump => {
-        // Add points for the creator
         if (!leaderboardData[jump.creator]) {
             leaderboardData[jump.creator] = { points: 0, jumps: [] };
         }
-        leaderboardData[jump.creator].points += 150;  // Creator always gets 150 points
         leaderboardData[jump.creator].jumps.push(jump.name);
 
-        // Add points for each victor
         jump.victors.forEach(victor => {
             if (!leaderboardData[victor]) {
                 leaderboardData[victor] = { points: 0, jumps: [] };
             }
-            leaderboardData[victor].points += 150;  // Start with 150 points for the first victor
             leaderboardData[victor].jumps.push(jump.name);
         });
     });
 
-    // Sort the leaderboard by points
+    // Sort players by number of jumps
     const sortedLeaderboard = Object.keys(leaderboardData)
         .map(player => ({
             name: player,
             ...leaderboardData[player]
         }))
-        .sort((a, b) => b.points - a.points); // Sort by points in descending order
+        .sort((a, b) => b.jumps.length - a.jumps.length);
+
+    // Assign points based on rank
+    sortedLeaderboard.forEach((player, index) => {
+        player.points = 150 - index; // Top 1 gets 150, Top 2 gets 149, and so on
+    });
 
     // Display the leaderboard
     displayLeaderboard(sortedLeaderboard);
@@ -130,18 +134,37 @@ function displayLeaderboard(sortedLeaderboard) {
         li.addEventListener('click', () => showPlayerJumps(player));
         leaderboardList.appendChild(li);
     });
+
+    leaderboardModal.style.display = 'flex';
 }
 
 // Show jumps for a selected player
 function showPlayerJumps(player) {
-    alert(`${player.name} appears in the following jumps:\n- ${player.jumps.join('\n- ')}`);
+    playerJumpsList.innerHTML = '';
+
+    player.jumps.forEach(jump => {
+        const li = document.createElement('li');
+        li.textContent = jump;
+        playerJumpsList.appendChild(li);
+    });
+
+    playerJumpsModal.style.display = 'flex';
 }
+
+// Close leaderboard modal
+closeLeaderboardBtn.addEventListener('click', () => {
+    leaderboardModal.style.display = 'none';
+});
+
+// Close player jumps modal
+closePlayerJumpsBtn.addEventListener('click', () => {
+    playerJumpsModal.style.display = 'none';
+});
 
 // Show/hide leaderboard when clicking the button
 leaderboardBtn.addEventListener('click', () => {
-    leaderboard.style.display = leaderboard.style.display === 'none' || !leaderboard.style.display ? 'block' : 'none';
+    leaderboardModal.style.display = 'flex';
 });
 
 // Initialize
 loadJumps();
-
