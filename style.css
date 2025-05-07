@@ -91,7 +91,6 @@ header p {
     margin: 0 auto;
 }
 
-/* Button Styling */
 .btn {
     background-color: #007bff;
     color: white;
@@ -107,7 +106,6 @@ header p {
     background-color: #0056b3;
 }
 
-/* Jump List Styling */
 .jump-list {
     max-width: 800px;
     margin: 0 auto;
@@ -172,7 +170,6 @@ header p {
     color: #a0a8c0;
 }
 
-/* Details and Modal Styling */
 .jump-details {
     position: fixed;
     top: 0;
@@ -238,7 +235,6 @@ header p {
     padding-left: 1.5rem;
 }
 
-/* Modal Button */
 .close-btn {
     background: linear-gradient(to right, var(--accent), #6a8dff);
     color: white;
@@ -257,8 +253,79 @@ header p {
     box-shadow: 0 7px 20px rgba(106, 141, 255, 0.6);
 }
 
-/* Leaderboard Modal */
-.leaderboard-modal, .player-jumps-modal {
+.leaderboard-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.leaderboard-content {
+    background-color: var(--primary);
+    color: var(--text);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 0 20px var(--accent-glow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    text-align: center;
+}
+
+#leaderboardList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#leaderboardList li {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+
+#leaderboardList li:hover {
+    background-color: #2b3352;
+    cursor: pointer;
+}
+
+#closeLeaderboardBtn {
+    margin-top: 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#closeLeaderboardBtn:hover {
+    background-color: #5576e0;
+}
+
+.player-jumps-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -271,7 +338,7 @@ header p {
     z-index: 999;
 }
 
-.leaderboard-content, .player-jumps-content {
+.player-jumps-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -280,21 +347,6 @@ header p {
     overflow-y: auto;
 }
 
-h2, h3 {
-    margin: 0;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
-/* Footer */
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -335,23 +387,4 @@ footer::before {
     .jump-info h2 {
         font-size: 1.2rem;
     }
-}
-
-#leaderboard {
-    display: none;
-    margin-top: 20px;
-}
-
-#leaderboard ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#leaderboard li {
-    cursor: pointer;
-    margin: 5px 0;
-}
-
-#leaderboard li:hover {
-    text-decoration: underline;
 }
