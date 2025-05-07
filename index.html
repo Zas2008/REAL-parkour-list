@@ -6,12 +6,35 @@
     <title>Parkour Jump Demonlist</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .leaderboard-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .leaderboard-content {
+            background-color: white;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Parkour Jump Demonlist</h1>
         <p>Ranking the hardest parkour jumps ever completed</p>
-        <!-- Leaderboard Button -->
         <button id="leaderboardBtn" class="btn">Leaderboard</button>
     </header>
 
@@ -28,7 +51,6 @@
             </div>
         </div>
 
-        <!-- Leaderboard Modal -->
         <div class="leaderboard-modal" id="leaderboardModal">
             <div class="leaderboard-content">
                 <h2>Leaderboard</h2>
@@ -37,7 +59,6 @@
             </div>
         </div>
 
-        <!-- Player Jumps Modal -->
         <div class="player-jumps-modal" id="playerJumpsModal">
             <div class="player-jumps-content">
                 <h3>Jumps</h3>
