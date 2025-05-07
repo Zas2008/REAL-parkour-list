@@ -1,4 +1,3 @@
-// DOM elements
 const jumpList = document.getElementById('jumpList');
 const jumpDetails = document.getElementById('jumpDetails');
 const detailName = document.getElementById('detailName');
@@ -16,7 +15,6 @@ const closePlayerJumpsBtn = document.getElementById('closePlayerJumpsBtn');
 let jumps = [];
 let leaderboardData = {};
 
-// Fetch jumps from JSON file
 async function loadJumps() {
     try {
         const response = await fetch('jumps.json');
@@ -41,7 +39,6 @@ async function loadJumps() {
     }
 }
 
-// Display jumps
 function displayJumps() {
     jumpList.innerHTML = '';
     
@@ -55,45 +52,39 @@ function displayJumps() {
                 <p class="creator">${jump.creator}</p>
             </div>
         `;
-        
         jumpElement.addEventListener('click', () => showJumpDetails(jump));
         jumpList.appendChild(jumpElement);
     });
 }
 
-// Show jump details
 function showJumpDetails(jump) {
     detailName.textContent = jump.name;
     detailCreator.textContent = jump.creator;
-    
     victorsList.innerHTML = '';
     jump.victors.forEach((victor) => {
         const li = document.createElement('li');
         li.textContent = victor;
         victorsList.appendChild(li);
     });
-    
     jumpDetails.style.display = 'flex';
 }
 
-// Close details
 closeBtn.addEventListener('click', () => {
     jumpDetails.style.display = 'none';
 });
 
-// Close when clicking outside
 jumpDetails.addEventListener('click', (e) => {
     if (e.target === jumpDetails) {
         jumpDetails.style.display = 'none';
     }
 });
 
-// Calculate leaderboard points
 function calculateLeaderboard() {
     leaderboardData = {};
 
-    // Iterate over all jumps to collect data
     jumps.forEach(jump => {
+        const jumpPoints = 150 - jump.id;
+
         if (!leaderboardData[jump.creator]) {
             leaderboardData[jump.creator] = { points: 0, jumps: [] };
         }
@@ -103,28 +94,21 @@ function calculateLeaderboard() {
             if (!leaderboardData[victor]) {
                 leaderboardData[victor] = { points: 0, jumps: [] };
             }
+            leaderboardData[victor].points += jumpPoints;
             leaderboardData[victor].jumps.push(jump.name);
         });
     });
 
-    // Sort players by number of jumps
     const sortedLeaderboard = Object.keys(leaderboardData)
-        .map(player => ({
-            name: player,
-            ...leaderboardData[player]
+        .map(name => ({
+            name,
+            ...leaderboardData[name]
         }))
-        .sort((a, b) => b.jumps.length - a.jumps.length);
+        .sort((a, b) => b.points - a.points);
 
-    // Assign points based on rank
-    sortedLeaderboard.forEach((player, index) => {
-        player.points = 150 - index; // Top 1 gets 150, Top 2 gets 149, and so on
-    });
-
-    // Display the leaderboard
     displayLeaderboard(sortedLeaderboard);
 }
 
-// Display leaderboard
 function displayLeaderboard(sortedLeaderboard) {
     leaderboardList.innerHTML = '';
     
@@ -138,33 +122,26 @@ function displayLeaderboard(sortedLeaderboard) {
     leaderboardModal.style.display = 'flex';
 }
 
-// Show jumps for a selected player
 function showPlayerJumps(player) {
     playerJumpsList.innerHTML = '';
-
     player.jumps.forEach(jump => {
         const li = document.createElement('li');
         li.textContent = jump;
         playerJumpsList.appendChild(li);
     });
-
     playerJumpsModal.style.display = 'flex';
 }
 
-// Close leaderboard modal
 closeLeaderboardBtn.addEventListener('click', () => {
     leaderboardModal.style.display = 'none';
 });
 
-// Close player jumps modal
 closePlayerJumpsBtn.addEventListener('click', () => {
     playerJumpsModal.style.display = 'none';
 });
 
-// Show/hide leaderboard when clicking the button
 leaderboardBtn.addEventListener('click', () => {
     leaderboardModal.style.display = 'flex';
 });
 
-// Initialize
 loadJumps();
