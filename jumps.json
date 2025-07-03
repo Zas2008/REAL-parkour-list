@@ -5,17 +5,17 @@
         "creator": "thomgram",
         "victors": [""]
     },
-    {
+{
         "id": 2,
-        "name": "Quadruple Triple Trials",
-        "creator": "Relapse",
-        "victors": ["RaniumΩ", "Tsp", "DonClogs", "thomgram", "Hofa2001", "VillotDn", "ResidentP"]
-    },
-    {
-        "id": 3,
         "name": "U-call",
         "creator": "RaniumΩ",
         "victors": ["Hofa2001"]
+    },
+    {
+        "id": 3,
+        "name": "Quadruple Triple Trials",
+        "creator": "Relapse",
+        "victors": ["RaniumΩ", "Tsp", "DonClogs", "thomgram", "Hofa2001", "VillotDn", "ResidentP"]
     },
         {
         "id": 4,
