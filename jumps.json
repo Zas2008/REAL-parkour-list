@@ -29,34 +29,34 @@
         "creator": "???",
         "victors": ["Abdul (?)"]
     },
+
             {
         "id": 6,
+        "name": "Free of Charge",
+        "creator": "Hofa2001",
+        "victors": ["Dauntix", "ArAr100", "RaniumΩ", "DonClogs", "Nicholas Bartholomew", "VillotDn"]
+    },
+            {
+        "id": 7,
+        "name": "chill guy",
+        "creator": "RaniumΩ",
+        "victors": ["thomgram", "polguy2", "kan1s"]
+    },
+            "id": 8,
         "name": "THE END",
         "creator": "BeBo2900",
         "victors": ["RaniumΩ", "Hofa2001", "Crawlcrol", "DonClogs", "tipdee22", "ForeverAgain", "Dauntix", "HalemAn0", "thomgram", "Calci2"]
     },
             {
-        "id": 7,
-        "name": "Free of Charge",
-        "creator": "Hofa2001",
-        "victors": ["Dauntix", "ArAr100", "RaniumΩ", "DonClogs"]
-    },
-            {
-        "id": 8,
-        "name": "chill guy",
-        "creator": "RaniumΩ",
-        "victors": ["thomgram", "polguy2", "kan1s"]
-    },
-            {
         "id": 9,
         "name": "Water",
         "creator": "埃克斯梅 (Dan)",
-        "victors": ["勒克瑙 (ducdimxll)", "RaniumΩ", "并打开 (foilerrealg2)"]
+        "victors": ["勒克瑙 (ducdimxll)", "RaniumΩ", "并打开 (foilerrealg2)", "JizzPlays"]
     },
             {
         "id": 10,
         "name": "L019",
         "creator": "Croooooooow",
-        "victors": ["HalemAn0", "RaniumΩ", "Findme12", "ForeverAgain", "Alppillo", "10sk"]
+        "victors": ["HalemAn0", "RaniumΩ", "Findme12", "ForeverAgain", "Alppillo", "10sk", "SkotinosMavros20", "JimmyBalkan"]
     }
 ]
